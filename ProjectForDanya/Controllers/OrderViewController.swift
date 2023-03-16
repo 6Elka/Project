@@ -32,10 +32,6 @@ class OrderViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(collectionView)
         
-    
-        
-    
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -79,7 +75,6 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         switch items[indexPath.row] {
         case "a":
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderCell.cell, for: indexPath) as! OrderCell
-            
             return cell
         case "b":
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SalesCell.cell, for: indexPath) as! SalesCell
