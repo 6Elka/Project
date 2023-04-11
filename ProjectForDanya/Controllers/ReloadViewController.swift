@@ -20,8 +20,6 @@ final class ReloadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        presentationViewController()
         intialize()
        
     }
@@ -29,61 +27,86 @@ final class ReloadViewController: UIViewController {
     private func intialize() {
         view.backgroundColor = .white
         
-        view.addSubview(backButton)
-        view.addSubview(titleLabel)
-        view.addSubview(warningImage)
-        view.addSubview(fallDownloadLabel)
-        view.addSubview(descriptionFall)
+        setBackButton()
+        setTitleLabel()
+        setWarningImage()
+        setFallDownLabel()
+        setDescriptionFall()
+        setReloadButton()
+        setGoToMain()
+
         view.addSubview(reloadButton)
         view.addSubview(goToMainWindow)
         
-        
+    }
+    
+    private func setBackButton() {
+        view.addSubview(backButton)
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             backButton.widthAnchor.constraint(equalToConstant: 80),
-            backButton.heightAnchor.constraint(equalToConstant: 20),
-            
+            backButton.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+        
+    private func setTitleLabel() {
+        view.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+        ])
+    }
+      
+    private func setWarningImage() {
+        view.addSubview(warningImage)
+        NSLayoutConstraint.activate([
             warningImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
             warningImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             warningImage.widthAnchor.constraint(equalToConstant: 100),
             warningImage.heightAnchor.constraint(equalToConstant: 100),
-            
+        ])
+    }
+        
+    private func setFallDownLabel() {
+        view.addSubview(fallDownloadLabel)
+        NSLayoutConstraint.activate([
             fallDownloadLabel.topAnchor.constraint(equalTo: warningImage.bottomAnchor, constant: 20),
             fallDownloadLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             fallDownloadLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        ])
+    }
             
+    private func setDescriptionFall() {
+        view.addSubview(descriptionFall)
+        NSLayoutConstraint.activate([
             descriptionFall.topAnchor.constraint(equalTo: fallDownloadLabel.bottomAnchor, constant: 10),
             descriptionFall.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+        ])
+    }
+            
+    private func setReloadButton() {
+        view.addSubview(reloadButton)
+        NSLayoutConstraint.activate([
             reloadButton.topAnchor.constraint(equalTo: descriptionFall.bottomAnchor, constant: 15),
             reloadButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             reloadButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             reloadButton.heightAnchor.constraint(equalToConstant: 50),
-            
+        ])
+    }
+        
+    private func setGoToMain() {
+        view.addSubview(goToMainWindow)
+        NSLayoutConstraint.activate([
             goToMainWindow.topAnchor.constraint(equalTo: reloadButton.bottomAnchor, constant: 20),
             goToMainWindow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             goToMainWindow.heightAnchor.constraint(equalToConstant: 20),
             goToMainWindow.widthAnchor.constraint(equalToConstant: 175)
         ])
-        
-        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
     }
     
     @objc func back() {
         dismiss(animated: true)
-    }
-    
-
-    //MARK: - PresentView
-    private func presentationViewController() {
-        sheetPresentationController?.selectedDetentIdentifier = .large
-        sheetPresentationController?.prefersGrabberVisible = false
-        sheetPresentationController?.detents = [
-            .large()
-        ]
     }
 }

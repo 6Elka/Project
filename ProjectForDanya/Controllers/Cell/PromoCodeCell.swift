@@ -32,44 +32,75 @@ final class PromoCell: UICollectionViewCell {
     private func initialize() {
         backgroundColor = .white
         
+        setSeparatorView()
+        setPromoBtn()
+        setSpecialOffer()
+        setDescriptionSales()
+        setPromoURL()
+        setCopyDoc()
+        setDataLabel()
+    }
+    
+    private func setSeparatorView() {
         addSubview(separatorView)
-        addSubview(promoButton)
-        addSubview(specialOffer)
-        addSubview(descriptionSales)
-        addSubview(promoURL)
-        addSubview(copyDoc)
-        addSubview(dataLabel)
-        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
+    
+    private func setPromoBtn() {
+        addSubview(promoButton)
+        NSLayoutConstraint.activate([
             promoButton.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             promoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             promoButton.widthAnchor.constraint(equalToConstant: 100),
-            promoButton.heightAnchor.constraint(equalToConstant: 40),
-            
+            promoButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    private func setSpecialOffer() {
+        addSubview(specialOffer)
+        NSLayoutConstraint.activate([
             specialOffer.topAnchor.constraint(equalTo: promoButton.bottomAnchor, constant: 20),
-            specialOffer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+            specialOffer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+    
+    private func setDescriptionSales() {
+        addSubview(descriptionSales)
+        NSLayoutConstraint.activate([
             descriptionSales.topAnchor.constraint(equalTo: specialOffer.bottomAnchor, constant: 10),
             descriptionSales.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            descriptionSales.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            
+            descriptionSales.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
+        ])
+    }
+    
+    private func setPromoURL() {
+        addSubview(promoURL)
+        NSLayoutConstraint.activate([
             promoURL.topAnchor.constraint(equalTo: descriptionSales.bottomAnchor, constant: 10),
-            promoURL.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+            promoURL.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+    
+    private func setCopyDoc() {
+        addSubview(copyDoc)
+        NSLayoutConstraint.activate([
             copyDoc.leadingAnchor.constraint(equalTo: promoURL.trailingAnchor,constant: 10),
             copyDoc.topAnchor.constraint(equalTo: descriptionSales.bottomAnchor, constant: 10),
             copyDoc.widthAnchor.constraint(equalToConstant: 20),
-            copyDoc.heightAnchor.constraint(equalToConstant: 20),
-            
-            dataLabel.topAnchor.constraint(equalTo: promoURL.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+            copyDoc.heightAnchor.constraint(equalToConstant: 20)
         ])
-        
+    }
+    
+    private func setDataLabel() {
+        addSubview(dataLabel)
+        NSLayoutConstraint.activate([
+            dataLabel.topAnchor.constraint(equalTo: promoURL.bottomAnchor, constant: 10),
+            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
     }
 }

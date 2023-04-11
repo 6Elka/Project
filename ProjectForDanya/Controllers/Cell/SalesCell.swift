@@ -26,50 +26,81 @@ final class SalesCell: UICollectionViewCell {
     }
     
     private func initialize() {
-        addSubview(separatorView)
-        addSubview(newButton)
-        addSubview(salesButton)
-        addSubview(specialOffer)
-        addSubview(descriptionSales)
-        addSubview(dataLabel)
-        addSubview(detailButton)
+        setSeparatorView()
+        setNewButton()
+        setSalesButton()
+        setSpecialOffer()
+        setDescriptionSales()
+        setDataLabel()
+        setDetailBtn()
+    }
     
+    private func setSeparatorView() {
+        addSubview(separatorView)
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+            ])
+    }
+    
+    private func setNewButton() {
+        addSubview(newButton)
+        NSLayoutConstraint.activate([
             newButton.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             newButton.widthAnchor.constraint(equalToConstant: 80),
             newButton.heightAnchor.constraint(equalToConstant: 40),
-            
+            ])
+    }
+    
+    private func setSalesButton() {
+        addSubview(salesButton)
+        NSLayoutConstraint.activate([
             salesButton.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             salesButton.leadingAnchor.constraint(equalTo: newButton.trailingAnchor, constant: 10),
             salesButton.heightAnchor.constraint(equalToConstant: 40),
             salesButton.widthAnchor.constraint(equalToConstant: 80),
-            
+        ])
+    }
+      
+    private func setSpecialOffer() {
+        addSubview(specialOffer)
+        NSLayoutConstraint.activate([
             specialOffer.topAnchor.constraint(equalTo: salesButton.bottomAnchor, constant: 15),
             specialOffer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             specialOffer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            
+        ])
+    }
+        
+    private func setDescriptionSales() {
+        addSubview(descriptionSales)
+        NSLayoutConstraint.activate([
             descriptionSales.topAnchor.constraint(equalTo: specialOffer.bottomAnchor, constant: 10),
             descriptionSales.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             descriptionSales.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            
-            dataLabel.topAnchor.constraint(equalTo: descriptionSales.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+        ])
+    }
+    
+    private func setDataLabel() {
+        addSubview(dataLabel)
+        NSLayoutConstraint.activate([
+             dataLabel.topAnchor.constraint(equalTo: descriptionSales.bottomAnchor, constant: 10),
+             dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+        ])
+    }
+          
+    private func setDetailBtn() {
+        addSubview(detailButton)
+        NSLayoutConstraint.activate([
             detailButton.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 20),
             detailButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             detailButton.widthAnchor.constraint(equalToConstant: 150),
             detailButton.heightAnchor.constraint(equalToConstant: 40)
-            
-            
-            ])
-    
+        ])
     }
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

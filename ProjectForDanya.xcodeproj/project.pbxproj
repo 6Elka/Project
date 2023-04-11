@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACB23AF829C2EF7600FE7E44 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23AF729C2EF7600FE7E44 /* OrderModel.swift */; };
 		ACB23AFA29C2F83800FE7E44 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23AF929C2F83800FE7E44 /* UIStackView.swift */; };
 		ACB23AFC29C305F200FE7E44 /* UIRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23AFB29C305F200FE7E44 /* UIRefreshControl.swift */; };
 		ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */; };
@@ -32,7 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACB23AF729C2EF7600FE7E44 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		ACB23AF929C2F83800FE7E44 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		ACB23AFB29C305F200FE7E44 /* UIRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControl.swift; sourceTree = "<group>"; };
 		ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySaveMessageViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACB23B2729C3216C00FE7E44 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				ACDD4FAD29C1FD51008ABC6B /* Assets.xcassets */,
+				ACDD4FAF29C1FD51008ABC6B /* LaunchScreen.storyboard */,
+				ACDD4FB229C1FD51008ABC6B /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		ACB64DCC29C2095400642835 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,14 +134,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		ACB64DE529C2363800642835 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				ACB23AF729C2EF7600FE7E44 /* OrderModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		ACDD4F9829C1FD51008ABC6B = {
 			isa = PBXGroup;
 			children = (
@@ -153,12 +153,9 @@
 		ACDD4FA329C1FD51008ABC6B /* ProjectForDanya */ = {
 			isa = PBXGroup;
 			children = (
-				ACB64DE529C2363800642835 /* Model */,
 				ACB64DD629C2198400642835 /* Delegates */,
 				ACB64DD729C219A100642835 /* Controllers */,
-				ACDD4FAD29C1FD51008ABC6B /* Assets.xcassets */,
-				ACDD4FAF29C1FD51008ABC6B /* LaunchScreen.storyboard */,
-				ACDD4FB229C1FD51008ABC6B /* Info.plist */,
+				ACB23B2729C3216C00FE7E44 /* Supporting */,
 				ACB64DCD29C209CA00642835 /* Extensions */,
 				ACB64DCC29C2095400642835 /* Fonts */,
 			);
@@ -246,7 +243,6 @@
 				ACB64DD129C20ACD00642835 /* UILabel.swift in Sources */,
 				ACB64DE229C22DE700642835 /* PromoCodeCell.swift in Sources */,
 				ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */,
-				ACB23AF829C2EF7600FE7E44 /* OrderModel.swift in Sources */,
 				ACDD4FA529C1FD51008ABC6B /* AppDelegate.swift in Sources */,
 				ACDD4FA729C1FD51008ABC6B /* SceneDelegate.swift in Sources */,
 				ACB64DE729C242ED00642835 /* UIView.swift in Sources */,
@@ -394,7 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ProjectForDanya/Info.plist;
+				INFOPLIST_FILE = ProjectForDanya/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -420,7 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ProjectForDanya/Info.plist;
+				INFOPLIST_FILE = ProjectForDanya/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

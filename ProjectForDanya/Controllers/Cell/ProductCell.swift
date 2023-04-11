@@ -33,51 +33,80 @@ final class ProductCell: UICollectionViewCell {
     
     private func initialize() {
         backgroundColor = .white
-        
-        addSubview(separatorView)
-        addSubview(image)
-        addSubview(salesButton)
-        addSubview(gifSales)
-        addSubview(descriptionGif)
-        addSubview(dataLabel)
-        addSubview(detailButton)
-    
-        
         image.backgroundColor = .red
         
+        setSeparatorView()
+        setImage()
+        setSalesButton()
+        setGifSales()
+        setDescriptionGif()
+        setDataLabel()
+        setDetailButton()    
+    }
+    
+    private func setSeparatorView() {
+        addSubview(separatorView)
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
+    
+    private func setImage() {
+        addSubview(image)
+        NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             image.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            image.heightAnchor.constraint(equalToConstant: 200),
-            
+            image.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func setSalesButton() {
+        addSubview(salesButton)
+        NSLayoutConstraint.activate([
             salesButton.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20),
             salesButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             salesButton.widthAnchor.constraint(equalToConstant: 80),
             salesButton.heightAnchor.constraint(equalToConstant: 40),
-            
-            gifSales.topAnchor.constraint(equalTo: salesButton.bottomAnchor, constant: 10),
-            gifSales.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
-            descriptionGif.topAnchor.constraint(equalTo: gifSales.bottomAnchor, constant: 10),
-            descriptionGif.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            descriptionGif.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
-            dataLabel.topAnchor.constraint(equalTo: descriptionGif.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
-            detailButton.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 10),
-            detailButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            detailButton.widthAnchor.constraint(equalToConstant: 150),
-            detailButton.heightAnchor.constraint(equalToConstant: 40)
-            
         ])
     }
     
     
+    private func setGifSales() {
+        addSubview(gifSales)
+        NSLayoutConstraint.activate([
+            gifSales.topAnchor.constraint(equalTo: salesButton.bottomAnchor, constant: 10),
+            gifSales.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+      
+    private func setDescriptionGif() {
+        addSubview(descriptionGif)
+        NSLayoutConstraint.activate([
+            descriptionGif.topAnchor.constraint(equalTo: gifSales.bottomAnchor, constant: 10),
+            descriptionGif.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            descriptionGif.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+        ])
+    }
+    
+    private func setDataLabel() {
+        addSubview(dataLabel)
+        NSLayoutConstraint.activate([
+            dataLabel.topAnchor.constraint(equalTo: descriptionGif.bottomAnchor, constant: 10),
+            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+        ])
+    }
+    
+    private func setDetailButton() {
+        addSubview(detailButton)
+        NSLayoutConstraint.activate([
+            detailButton.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 10),
+            detailButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            detailButton.widthAnchor.constraint(equalToConstant: 150),
+            detailButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
 }

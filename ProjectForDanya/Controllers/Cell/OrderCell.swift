@@ -31,41 +31,66 @@ final class OrderCell: UICollectionViewCell {
     }
     
     private func initialize() {
-        addSubview(image)
-        addSubview(titleLabel)
+        setSeparatorView()
+        setImage()
+        setTitleLabel()
+        setOrderCompleted()
+        setDataLabel()
+        setOrder()
+    }
+    
+    private func setSeparatorView() {
         addSubview(separatorView)
-        addSubview(orderCompleted)
-        addSubview(dataLabel)
-        addSubview(order)
-        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+            ])
+    }
+        
+    private func setImage() {
+        addSubview(image)
+        NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 30),
             image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             image.widthAnchor.constraint(equalToConstant: 40),
-            image.heightAnchor.constraint(equalToConstant: 40),
-            
+            image.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+      
+    private func setTitleLabel() {
+        addSubview(titleLabel)
+        NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 30),
             titleLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            
+        ])
+    }
+        
+    private func setOrderCompleted() {
+        addSubview(orderCompleted)
+        NSLayoutConstraint.activate([
             orderCompleted.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             orderCompleted.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
             orderCompleted.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+        ])
+    }
             
+    private func setDataLabel() {
+        addSubview(dataLabel)
+        NSLayoutConstraint.activate([
             dataLabel.topAnchor.constraint(equalTo: orderCompleted.bottomAnchor, constant: 10),
             dataLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            
+        ])
+    }
+    
+    private func setOrder() {
+        addSubview(order)
+        NSLayoutConstraint.activate([
             order.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 20),
             order.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
             order.widthAnchor.constraint(equalToConstant: 160),
             order.heightAnchor.constraint(equalToConstant: 20)
-
         ])
     }
-    
-    
 }

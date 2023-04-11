@@ -32,35 +32,56 @@ final class PaingCell: UICollectionViewCell {
     private func initialize() {
         backgroundColor = .white
         
+        setSeparatorView()
+        setGetCheck()
+        setDataLabel()
+        setOrder()
+        setOpenButton()
+    }
+    
+    private func setSeparatorView() {
         addSubview(separatorView)
-        addSubview(getCheck)
-        addSubview(dataLabel)
-        addSubview(openButton)
-        addSubview(order)
-        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+            ])
+    }
+        
+    private func setDataLabel() {
+        addSubview(dataLabel)
+        NSLayoutConstraint.activate([
+            dataLabel.topAnchor.constraint(equalTo: getCheck.bottomAnchor, constant: 10),
+            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            ])
+    }
+    
+    private func setGetCheck() {
+        addSubview(getCheck)
+        NSLayoutConstraint.activate([
             getCheck.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             getCheck.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             getCheck.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            
-            dataLabel.topAnchor.constraint(equalTo: getCheck.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+            ])
+    }
+    
+    private func setOrder() {
+        addSubview(order)
+        NSLayoutConstraint.activate([
             order.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 20),
-            order.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
+            order.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+    }
+    
+    private func setOpenButton() {
+        addSubview(openButton)
+        NSLayoutConstraint.activate([
             openButton.topAnchor.constraint(equalTo: order.bottomAnchor, constant: 10),
             openButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             openButton.widthAnchor.constraint(equalToConstant: 150),
             openButton.heightAnchor.constraint(equalToConstant: 40),
-            
-         
-            
+        
         ])
     }
     @objc private func activIndicator() {

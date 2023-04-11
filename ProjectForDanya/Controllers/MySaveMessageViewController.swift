@@ -18,58 +18,67 @@ final class MySaveMessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        presentationViewController()
         intialize()
-       
     }
     
     private func intialize() {
         view.backgroundColor = .white
-        
+        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
+  
+        setBackButton()
+        setTitleLabel()
+        setMessageImage()
+        setMyMessage()
+        setImportantMessage()
+    }
+    
+    private func setBackButton() {
         view.addSubview(backButton)
-        view.addSubview(titleLabel)
-        view.addSubview(messageImage)
-        view.addSubview(myMessageLabel)
-        view.addSubview(importantMessage)
-        
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             backButton.widthAnchor.constraint(equalToConstant: 80),
-            backButton.heightAnchor.constraint(equalToConstant: 20),
-            
+            backButton.heightAnchor.constraint(equalToConstant: 20)
+            ])
+    }
+    
+    private func setTitleLabel() {
+        view.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+            ])
+    }
+    
+    private func setMessageImage() {
+        view.addSubview(messageImage)
+        NSLayoutConstraint.activate([
             messageImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
             messageImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             messageImage.heightAnchor.constraint(equalToConstant: 100),
-            messageImage.widthAnchor.constraint(equalToConstant: 100),
-            
+            messageImage.widthAnchor.constraint(equalToConstant: 100)
+            ])
+    }
+    
+    private func setMyMessage() {
+        view.addSubview(myMessageLabel)
+        NSLayoutConstraint.activate([
             myMessageLabel.topAnchor.constraint(equalTo: messageImage.bottomAnchor, constant: 20),
             myMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+            ])
+    }
+    
+    private func setImportantMessage() {
+        view.addSubview(importantMessage)
+        NSLayoutConstraint.activate([
             importantMessage.topAnchor.constraint(equalTo: myMessageLabel.bottomAnchor, constant: 15),
             importantMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             importantMessage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             importantMessage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
+            ])
     }
     
     @objc func back() {
         dismiss(animated: true)
     }
-    
-
-    //MARK: - PresentView
-    private func presentationViewController() {
-        sheetPresentationController?.selectedDetentIdentifier = .large
-        sheetPresentationController?.prefersGrabberVisible = false
-        sheetPresentationController?.detents = [
-            .large()
-        ]
-    }
-
 }

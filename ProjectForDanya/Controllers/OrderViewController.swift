@@ -18,48 +18,59 @@ class OrderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         intialize()
     }
    
     private func intialize() {
-        
-        let someLayout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: someLayout)
-        
         view.backgroundColor = .white
-        view.addSubview(backButton)
-        view.addSubview(titleLabel)
-        view.addSubview(collectionView)
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.register(OrderCell.self, forCellWithReuseIdentifier: OrderCell.cell)
-        collectionView.register(SalesCell.self, forCellWithReuseIdentifier: SalesCell.cell)
-        collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.cell)
-        collectionView.register(PromoCell.self, forCellWithReuseIdentifier: PromoCell.cell)
-        collectionView.register(PaingCell.self, forCellWithReuseIdentifier: PaingCell.cell)
-
-        NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            backButton.widthAnchor.constraint(equalToConstant: 80),
-            backButton.heightAnchor.constraint(equalToConstant: 20),
-            
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-        ])
         backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
+        
+        setTitleLabel()
+        setBackButton()
+        setCollection()
     }
-    
+        
+        private func setCollection() {
+            let someLayout = UICollectionViewFlowLayout()
+            collectionView = UICollectionView(frame: .zero, collectionViewLayout: someLayout)
+            view.addSubview(collectionView)
+            
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            
+            collectionView.register(OrderCell.self, forCellWithReuseIdentifier: OrderCell.cell)
+            collectionView.register(SalesCell.self, forCellWithReuseIdentifier: SalesCell.cell)
+            collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.cell)
+            collectionView.register(PromoCell.self, forCellWithReuseIdentifier: PromoCell.cell)
+            collectionView.register(PaingCell.self, forCellWithReuseIdentifier: PaingCell.cell)
+            
+            NSLayoutConstraint.activate([
+                collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+                collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+        }
+
+        private func setBackButton() {
+            view.addSubview(backButton)
+            NSLayoutConstraint.activate([
+                backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+                backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                backButton.widthAnchor.constraint(equalToConstant: 80),
+                backButton.heightAnchor.constraint(equalToConstant: 20),
+            ])
+        }
+
+        private func setTitleLabel() {
+            view.addSubview(titleLabel)
+            NSLayoutConstraint.activate([
+                titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+                titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ])
+        }
+
     @objc func back() {
         dismiss(animated: true)
     }
@@ -111,9 +122,5 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             print("Wrong size for cell")
             return CGSize()
         }
-        
-       
     }
-    
-    
 }

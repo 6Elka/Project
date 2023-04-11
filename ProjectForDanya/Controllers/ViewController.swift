@@ -15,13 +15,17 @@ enum Login: Int {
 
 final class ViewController: UIViewController {
     
-    private var isSecury = true
+
     private var login = Login.one
 
     private let button = UIButton().createButton(title: "TAP", name: "", size: 16, titleColor: .black, systemImage: nil, background: nil, corner: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButton()
+    }
+    
+    private func setButton() {
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         view.addSubview(button)
