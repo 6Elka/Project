@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
 
     private var login = Login.one
 
-    private let button = UIButton().createButton(title: "TAP", name: "", size: 16, titleColor: .black, systemImage: nil, background: nil, corner: 0)
+    private let button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,10 @@ final class ViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         view.addSubview(button)
+        button.setTitle("TAP", for: .normal)
+        button.titleLabel?.font = UIFont(name: "", size: 16)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(changeWindow), for: .touchUpInside)
         
         NSLayoutConstraint.activate([

@@ -10,20 +10,18 @@ import UIKit
 
 final class OrderCell: UICollectionViewCell {
     
-    static let cell = "Cell"
+    static let cell = "Order"
     
-    private let separatorView = UIView().createView(color: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-    private let image = UIImageView().createImage(systemName: "stopwatch", color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), corner: nil)
-    private let titleLabel = UILabel().createLabel(title: "Заказ 405916", name: "Ubuntu-Medium", size: 16, textColor: .black, alignment: .center)
-    private let orderCompleted = UILabel().createLabel(title: "Принят заказ 405916 на сумму 524 р. Доставка по адеру Санкт-Петербург, Московское ш., д. 7, лит. А", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), alignment: .left)
-    private let dataLabel = UILabel().createLabel(title: "4 марта 23:00", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), alignment: .left)
-    private let order = UIButton().createButton(title: "Подробности заказа", name: "Ubuntu-Medium", size: 16, titleColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), systemImage: nil, background: nil, corner: nil)
+    private let separatorView = UIView()
+    private let timerImage = UIImageView()
+    private let numberOfOrder = UILabel()
+    private let addressOfOrder = UILabel()
+    private let dataOrder = UILabel()
+    private let descriptionOrder = UIButton()
  
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
-       initialize()
+        initialize()
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +39,9 @@ final class OrderCell: UICollectionViewCell {
     
     private func setSeparatorView() {
         addSubview(separatorView)
+        separatorView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -50,47 +51,74 @@ final class OrderCell: UICollectionViewCell {
     }
         
     private func setImage() {
-        addSubview(image)
+        addSubview(timerImage)
+        timerImage.image = UIImage(systemName: "stopwatch")?.withTintColor(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), renderingMode: .alwaysOriginal)
+        timerImage.translatesAutoresizingMaskIntoConstraints = false
+    
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 30),
-            image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            image.widthAnchor.constraint(equalToConstant: 40),
-            image.heightAnchor.constraint(equalToConstant: 40)
+            timerImage.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 30),
+            timerImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            timerImage.widthAnchor.constraint(equalToConstant: 40),
+            timerImage.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
       
     private func setTitleLabel() {
-        addSubview(titleLabel)
+        addSubview(numberOfOrder)
+        numberOfOrder.text = "Заказ 405916"
+        numberOfOrder.font = .init(name: "Ubuntu-Medium", size: 16)
+        numberOfOrder.textColor = .black
+        numberOfOrder.textAlignment = .center
+        numberOfOrder.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 30),
-            titleLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
+            numberOfOrder.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 30),
+            numberOfOrder.leadingAnchor.constraint(equalTo: timerImage.trailingAnchor, constant: 20),
         ])
     }
         
     private func setOrderCompleted() {
-        addSubview(orderCompleted)
+        addSubview(addressOfOrder)
+        addressOfOrder.text = "Принят заказ 405916 на сумму 524 р. Доставка по адеру Санкт-Петербург, Московское ш., д. 7, лит. А"
+        addressOfOrder.numberOfLines = 0
+        addressOfOrder.font = .init(name: "Ubuntu-Medium", size: 15)
+        addressOfOrder.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        addressOfOrder.textAlignment = .left
+        addressOfOrder.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            orderCompleted.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            orderCompleted.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            orderCompleted.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            addressOfOrder.topAnchor.constraint(equalTo: numberOfOrder.bottomAnchor, constant: 10),
+            addressOfOrder.leadingAnchor.constraint(equalTo: timerImage.trailingAnchor, constant: 20),
+            addressOfOrder.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }
             
     private func setDataLabel() {
-        addSubview(dataLabel)
+        addSubview(dataOrder)
+        dataOrder.text = "4 марта 23:00"
+        dataOrder.font = .init(name: "Ubuntu-Medium", size: 15)
+        dataOrder.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        dataOrder.textAlignment = .left
+        dataOrder.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            dataLabel.topAnchor.constraint(equalTo: orderCompleted.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
+            dataOrder.topAnchor.constraint(equalTo: addressOfOrder.bottomAnchor, constant: 10),
+            dataOrder.leadingAnchor.constraint(equalTo: timerImage.trailingAnchor, constant: 20),
         ])
     }
     
     private func setOrder() {
-        addSubview(order)
+        addSubview(descriptionOrder)
+        descriptionOrder.setTitle("Подробности заказа", for: .normal)
+        descriptionOrder.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        descriptionOrder.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        descriptionOrder.translatesAutoresizingMaskIntoConstraints = false
+    
         NSLayoutConstraint.activate([
-            order.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 20),
-            order.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20),
-            order.widthAnchor.constraint(equalToConstant: 160),
-            order.heightAnchor.constraint(equalToConstant: 20)
+            descriptionOrder.topAnchor.constraint(equalTo: dataOrder.bottomAnchor, constant: 20),
+            descriptionOrder.leadingAnchor.constraint(equalTo: timerImage.trailingAnchor, constant: 20),
+            descriptionOrder.widthAnchor.constraint(equalToConstant: 160),
+            descriptionOrder.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }

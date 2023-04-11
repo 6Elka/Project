@@ -10,10 +10,8 @@ import UIKit
 class OrderViewController: UIViewController {
     
     private var collectionView: UICollectionView!
-    
-    private let backButton = UIButton().createButton(title: "Закрыть", name: "Ubuntu-Medium", size: 16, titleColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), systemImage: nil, background: nil, corner: 10)
-    private let titleLabel = UILabel().createLabel(title: "Cообщения", name: "Ubuntu-Medium", size: 16, textColor: .black, alignment: .center)
-    
+    private let backButton = UIButton()
+    private let titleMessage = UILabel()
     private let items = ["a", "b", "c", "d", "e"]
     
     override func viewDidLoad() {
@@ -24,7 +22,6 @@ class OrderViewController: UIViewController {
     private func intialize() {
         view.backgroundColor = .white
         backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
-        
         setTitleLabel()
         setBackButton()
         setCollection()
@@ -46,7 +43,7 @@ class OrderViewController: UIViewController {
             collectionView.register(PaingCell.self, forCellWithReuseIdentifier: PaingCell.cell)
             
             NSLayoutConstraint.activate([
-                collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+                collectionView.topAnchor.constraint(equalTo: titleMessage.bottomAnchor, constant: 10),
                 collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -55,6 +52,12 @@ class OrderViewController: UIViewController {
 
         private func setBackButton() {
             view.addSubview(backButton)
+            backButton.setTitle("Закрыть", for: .normal)
+            backButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+            backButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+            backButton.layer.cornerRadius = 10
+            backButton.translatesAutoresizingMaskIntoConstraints = false
+            
             NSLayoutConstraint.activate([
                 backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
                 backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -64,10 +67,16 @@ class OrderViewController: UIViewController {
         }
 
         private func setTitleLabel() {
-            view.addSubview(titleLabel)
+            view.addSubview(titleMessage)
+            titleMessage.text = "Cообщения"
+            titleMessage.font = .init(name: "Ubuntu-Medium", size: 16)
+            titleMessage.textColor = .black
+            titleMessage.textAlignment = .center
+            titleMessage.translatesAutoresizingMaskIntoConstraints = false
+
             NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-                titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                titleMessage.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+                titleMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
         }
 

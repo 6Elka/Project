@@ -9,12 +9,11 @@ import UIKit
 
 final class MySaveMessageViewController: UIViewController {
 
-    private let backButton = UIButton().createButton(title: "Закрыть", name: "Ubuntu-Medium", size: 16, titleColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), systemImage: nil, background: nil, corner: 10)
-    private let titleLabel = UILabel().createLabel(title: "Cообщения", name: "Ubuntu-Medium", size: 16, textColor: .black, alignment: .center)
-    private let messageImage = UIImageView().createImage(systemName: "envelope.badge", color: #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1), corner: nil)
-    private let myMessageLabel = UILabel().createLabel(title: "Ваши сообщения", name: "Ubuntu-Bold", size: 26, textColor: .black, alignment: .center)
-    private let importantMessage = UILabel().createLabel(title: "Здесь будут появляться все важные уведомления по вашим заказам, электронные чеки по покупкам в офлайн-магазинах, а также специальные предложения", name: "Ubuntu-Medium", size: 16, textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), alignment: .center)
-    
+    private let backButton = UIButton()
+    private let titleMessage = UILabel()
+    private let letterImage = UIImageView()
+    private let myMessageLabel = UILabel()
+    private let importantMessage = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,12 @@ final class MySaveMessageViewController: UIViewController {
     
     private func setBackButton() {
         view.addSubview(backButton)
+        backButton.setTitle("Закрыть", for: .normal)
+        backButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        backButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        backButton.layer.cornerRadius = 10
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -43,33 +48,56 @@ final class MySaveMessageViewController: UIViewController {
     }
     
     private func setTitleLabel() {
-        view.addSubview(titleLabel)
+        view.addSubview(titleMessage)
+        titleMessage.text = "Cообщения"
+        titleMessage.font = .init(name: "Ubuntu-Medium", size: 16)
+        titleMessage.textColor = .black
+        titleMessage.textAlignment = .center
+        titleMessage.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleMessage.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            titleMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
     }
     
     private func setMessageImage() {
-        view.addSubview(messageImage)
+        view.addSubview(letterImage)
+        letterImage.image = UIImage(systemName: "envelope.badge")?.withTintColor(#colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1), renderingMode: .alwaysOriginal)
+        letterImage.contentMode = .scaleAspectFill
+        letterImage.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            messageImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
-            messageImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            messageImage.heightAnchor.constraint(equalToConstant: 100),
-            messageImage.widthAnchor.constraint(equalToConstant: 100)
+            letterImage.topAnchor.constraint(equalTo: titleMessage.bottomAnchor, constant: 100),
+            letterImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            letterImage.heightAnchor.constraint(equalToConstant: 100),
+            letterImage.widthAnchor.constraint(equalToConstant: 100)
             ])
     }
     
     private func setMyMessage() {
         view.addSubview(myMessageLabel)
+        myMessageLabel.text = "Ваши сообщения"
+        myMessageLabel.font = .init(name: "Ubuntu-Bold", size: 26)
+        myMessageLabel.textColor = .black
+        myMessageLabel.textAlignment = .center
+        myMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            myMessageLabel.topAnchor.constraint(equalTo: messageImage.bottomAnchor, constant: 20),
+            myMessageLabel.topAnchor.constraint(equalTo: letterImage.bottomAnchor, constant: 20),
             myMessageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
     }
     
     private func setImportantMessage() {
         view.addSubview(importantMessage)
+        importantMessage.text = "Здесь будут появляться все важные уведомления по вашим заказам, электронные чеки по покупкам в офлайн-магазинах, а также специальные предложения"
+        importantMessage.font = .init(name: "Ubuntu-Medium", size: 16)
+        importantMessage.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        importantMessage.numberOfLines = 0
+        importantMessage.textAlignment = .center
+        importantMessage.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             importantMessage.topAnchor.constraint(equalTo: myMessageLabel.bottomAnchor, constant: 15),
             importantMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),

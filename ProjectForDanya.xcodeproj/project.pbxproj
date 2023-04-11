@@ -7,21 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACB23AFA29C2F83800FE7E44 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23AF929C2F83800FE7E44 /* UIStackView.swift */; };
-		ACB23AFC29C305F200FE7E44 /* UIRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23AFB29C305F200FE7E44 /* UIRefreshControl.swift */; };
 		ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */; };
 		ACB64DC829C2044B00642835 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACB64DC729C2044B00642835 /* Ubuntu-Bold.ttf */; };
 		ACB64DCA29C2045200642835 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACB64DC929C2045200642835 /* Ubuntu-Medium.ttf */; };
-		ACB64DCF29C209DD00642835 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DCE29C209DD00642835 /* UIButton.swift */; };
-		ACB64DD129C20ACD00642835 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DD029C20ACD00642835 /* UILabel.swift */; };
-		ACB64DD329C20D9500642835 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DD229C20D9500642835 /* UIImageView.swift */; };
 		ACB64DD529C2193F00642835 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DD429C2193F00642835 /* OrderViewController.swift */; };
 		ACB64DDC29C2279B00642835 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DDB29C2279B00642835 /* OrderCell.swift */; };
 		ACB64DDE29C22D3B00642835 /* SalesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DDD29C22D3B00642835 /* SalesCell.swift */; };
 		ACB64DE029C22DD800642835 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DDF29C22DD800642835 /* ProductCell.swift */; };
 		ACB64DE229C22DE700642835 /* PromoCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DE129C22DE700642835 /* PromoCodeCell.swift */; };
 		ACB64DE429C22DF200642835 /* PaingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DE329C22DF200642835 /* PaingCell.swift */; };
-		ACB64DE729C242ED00642835 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DE629C242ED00642835 /* UIView.swift */; };
 		ACDD4FA529C1FD51008ABC6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD4FA429C1FD51008ABC6B /* AppDelegate.swift */; };
 		ACDD4FA729C1FD51008ABC6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD4FA629C1FD51008ABC6B /* SceneDelegate.swift */; };
 		ACDD4FA929C1FD51008ABC6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD4FA829C1FD51008ABC6B /* ViewController.swift */; };
@@ -31,22 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACB23AF929C2F83800FE7E44 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
-		ACB23AFB29C305F200FE7E44 /* UIRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControl.swift; sourceTree = "<group>"; };
 		ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySaveMessageViewController.swift; sourceTree = "<group>"; };
 		ACB64DC729C2044B00642835 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		ACB64DC929C2045200642835 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		ACB64DCB29C2046100642835 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
-		ACB64DCE29C209DD00642835 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		ACB64DD029C20ACD00642835 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		ACB64DD229C20D9500642835 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		ACB64DD429C2193F00642835 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		ACB64DDB29C2279B00642835 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		ACB64DDD29C22D3B00642835 /* SalesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesCell.swift; sourceTree = "<group>"; };
 		ACB64DDF29C22DD800642835 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		ACB64DE129C22DE700642835 /* PromoCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeCell.swift; sourceTree = "<group>"; };
 		ACB64DE329C22DF200642835 /* PaingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaingCell.swift; sourceTree = "<group>"; };
-		ACB64DE629C242ED00642835 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		ACDD4FA129C1FD51008ABC6B /* ProjectForDanya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectForDanya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDD4FA429C1FD51008ABC6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACDD4FA629C1FD51008ABC6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,19 +74,6 @@
 				ACB64DCB29C2046100642835 /* Ubuntu-Regular.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		ACB64DCD29C209CA00642835 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				ACB64DCE29C209DD00642835 /* UIButton.swift */,
-				ACB64DD029C20ACD00642835 /* UILabel.swift */,
-				ACB64DD229C20D9500642835 /* UIImageView.swift */,
-				ACB64DE629C242ED00642835 /* UIView.swift */,
-				ACB23AF929C2F83800FE7E44 /* UIStackView.swift */,
-				ACB23AFB29C305F200FE7E44 /* UIRefreshControl.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ACB64DD629C2198400642835 /* Delegates */ = {
@@ -156,7 +131,6 @@
 				ACB64DD629C2198400642835 /* Delegates */,
 				ACB64DD729C219A100642835 /* Controllers */,
 				ACB23B2729C3216C00FE7E44 /* Supporting */,
-				ACB64DCD29C209CA00642835 /* Extensions */,
 				ACB64DCC29C2095400642835 /* Fonts */,
 			);
 			path = ProjectForDanya;
@@ -234,20 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACB64DD329C20D9500642835 /* UIImageView.swift in Sources */,
 				ACB64DE429C22DF200642835 /* PaingCell.swift in Sources */,
-				ACB23AFA29C2F83800FE7E44 /* UIStackView.swift in Sources */,
 				ACDD4FB929C1FE57008ABC6B /* ReloadViewController.swift in Sources */,
 				ACB64DDC29C2279B00642835 /* OrderCell.swift in Sources */,
 				ACDD4FA929C1FD51008ABC6B /* ViewController.swift in Sources */,
-				ACB64DD129C20ACD00642835 /* UILabel.swift in Sources */,
 				ACB64DE229C22DE700642835 /* PromoCodeCell.swift in Sources */,
 				ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */,
 				ACDD4FA529C1FD51008ABC6B /* AppDelegate.swift in Sources */,
 				ACDD4FA729C1FD51008ABC6B /* SceneDelegate.swift in Sources */,
-				ACB64DE729C242ED00642835 /* UIView.swift in Sources */,
-				ACB23AFC29C305F200FE7E44 /* UIRefreshControl.swift in Sources */,
-				ACB64DCF29C209DD00642835 /* UIButton.swift in Sources */,
 				ACB64DE029C22DD800642835 /* ProductCell.swift in Sources */,
 				ACB64DD529C2193F00642835 /* OrderViewController.swift in Sources */,
 				ACB64DDE29C22D3B00642835 /* SalesCell.swift in Sources */,

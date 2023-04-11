@@ -12,13 +12,13 @@ final class PromoCell: UICollectionViewCell {
     
     static let cell = "Promo"
     
-    private let separatorView = UIView().createView(color: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-    private let promoButton = UIButton().createButton(title: "Промокод", name: "Ubuntu-Medium", size: 16, titleColor: .white, systemImage: nil, background: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), corner: 20)
-    private let specialOffer = UILabel().createLabel(title: "Дарим промокод", name:  "Ubuntu-Medium", size: 16, textColor: .black, alignment: .left)
-    private let descriptionSales = UILabel().createLabel(title: "Дарим промо-код на следующую покупку. Код действует до 24 мая. Успейте воспользоваться! =)", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), alignment: .left)
-    private let promoURL = UILabel().createLabel(title: "UR-29375", name:  "Ubuntu-Medium", size: 16, textColor: .black, alignment: .left)
-    private let dataLabel = UILabel().createLabel(title: "4 марта 23:00", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), alignment: .left)
-    private let copyDoc = UIImageView().createImage(systemName: "doc.on.doc", color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), corner: nil)
+    private let separatorView = UIView()
+    private let promoButton = UIButton()
+    private let specialOffer = UILabel()
+    private let descriptionOffer = UILabel()
+    private let promoURL = UILabel()
+    private let dataOfPromo = UILabel()
+    private let imgURL = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +31,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func initialize() {
         backgroundColor = .white
-        
         setSeparatorView()
         setPromoBtn()
         setSpecialOffer()
@@ -43,6 +42,9 @@ final class PromoCell: UICollectionViewCell {
     
     private func setSeparatorView() {
         addSubview(separatorView)
+        separatorView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -53,6 +55,13 @@ final class PromoCell: UICollectionViewCell {
     
     private func setPromoBtn() {
         addSubview(promoButton)
+        promoButton.setTitle("Промокод", for: .normal)
+        promoButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        promoButton.setTitleColor(.white, for: .normal)
+        promoButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        promoButton.layer.cornerRadius = 20
+        promoButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             promoButton.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             promoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -63,6 +72,12 @@ final class PromoCell: UICollectionViewCell {
     
     private func setSpecialOffer() {
         addSubview(specialOffer)
+        specialOffer.text = "Дарим промокод"
+        specialOffer.font = .init(name: "Ubuntu-Medium", size: 16)
+        specialOffer.textColor = .black
+        specialOffer.textAlignment = .left
+        specialOffer.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             specialOffer.topAnchor.constraint(equalTo: promoButton.bottomAnchor, constant: 20),
             specialOffer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
@@ -70,37 +85,59 @@ final class PromoCell: UICollectionViewCell {
     }
     
     private func setDescriptionSales() {
-        addSubview(descriptionSales)
+        addSubview(descriptionOffer)
+        descriptionOffer.text = "Дарим промо-код на следующую покупку. Код действует до 24 мая. Успейте воспользоваться! =)"
+        descriptionOffer.numberOfLines = 0
+        descriptionOffer.font = .init(name: "Ubuntu-Medium", size: 15)
+        descriptionOffer.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        descriptionOffer.textAlignment = .left
+        descriptionOffer.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            descriptionSales.topAnchor.constraint(equalTo: specialOffer.bottomAnchor, constant: 10),
-            descriptionSales.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            descriptionSales.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
+            descriptionOffer.topAnchor.constraint(equalTo: specialOffer.bottomAnchor, constant: 10),
+            descriptionOffer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            descriptionOffer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
         ])
     }
     
     private func setPromoURL() {
         addSubview(promoURL)
+        promoURL.text = "UR-29375"
+        promoURL.font = .init(name: "Ubuntu-Medium", size: 16)
+        promoURL.textColor = .black
+        promoURL.textAlignment = .left
+        promoURL.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            promoURL.topAnchor.constraint(equalTo: descriptionSales.bottomAnchor, constant: 10),
+            promoURL.topAnchor.constraint(equalTo: descriptionOffer.bottomAnchor, constant: 10),
             promoURL.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
     
     private func setCopyDoc() {
-        addSubview(copyDoc)
+        addSubview(imgURL)
+        imgURL.image = UIImage(systemName: "doc.on.doc")?.withTintColor( #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), renderingMode: .alwaysOriginal)
+        imgURL.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            copyDoc.leadingAnchor.constraint(equalTo: promoURL.trailingAnchor,constant: 10),
-            copyDoc.topAnchor.constraint(equalTo: descriptionSales.bottomAnchor, constant: 10),
-            copyDoc.widthAnchor.constraint(equalToConstant: 20),
-            copyDoc.heightAnchor.constraint(equalToConstant: 20)
+            imgURL.leadingAnchor.constraint(equalTo: promoURL.trailingAnchor,constant: 10),
+            imgURL.topAnchor.constraint(equalTo: descriptionOffer.bottomAnchor, constant: 10),
+            imgURL.widthAnchor.constraint(equalToConstant: 20),
+            imgURL.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
     private func setDataLabel() {
-        addSubview(dataLabel)
+        addSubview(dataOfPromo)
+        dataOfPromo.text = "4 марта 23:00"
+        dataOfPromo.font = .init(name: "Ubuntu-Medium", size: 15)
+        dataOfPromo.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        dataOfPromo.textAlignment = .left
+        dataOfPromo.translatesAutoresizingMaskIntoConstraints = false
+    
         NSLayoutConstraint.activate([
-            dataLabel.topAnchor.constraint(equalTo: promoURL.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            dataOfPromo.topAnchor.constraint(equalTo: promoURL.bottomAnchor, constant: 10),
+            dataOfPromo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
 }

@@ -12,16 +12,14 @@ final class PaingCell: UICollectionViewCell {
     
     static let cell = "Paing"
 
-    
-    private let separatorView = UIView().createView(color: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-    private let getCheck = UILabel().createLabel(title: "Получен кассовый чек на сумму 186 р для заказа 405916", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), alignment: .left)
-    private let dataLabel = UILabel().createLabel(title: "4 марта 23:00", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), alignment: .left)
-    private let openButton = UIButton().createButton(title: "Открыть чек", name: "Ubuntu-Medium", size: 16, titleColor: .white, systemImage: nil, background: #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1), corner: 10)
-    private let order = UIButton().createButton(title: "Подробности заказа", name: "Ubuntu-Medium", size: 16, titleColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), systemImage: nil, background: nil, corner: nil)
+    private let separatorView = UIView()
+    private let getCheck = UILabel()
+    private let dataOfCheck = UILabel()
+    private let openButton = UIButton()
+    private let descriptionOfOrder = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
         initialize()
     }
     
@@ -31,7 +29,6 @@ final class PaingCell: UICollectionViewCell {
     
     private func initialize() {
         backgroundColor = .white
-        
         setSeparatorView()
         setGetCheck()
         setDataLabel()
@@ -41,6 +38,9 @@ final class PaingCell: UICollectionViewCell {
     
     private func setSeparatorView() {
         addSubview(separatorView)
+        separatorView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -50,15 +50,27 @@ final class PaingCell: UICollectionViewCell {
     }
         
     private func setDataLabel() {
-        addSubview(dataLabel)
+        addSubview(dataOfCheck)
+        dataOfCheck.text = "4 марта 23:00"
+        dataOfCheck.font = .init(name: "Ubuntu-Medium", size: 15)
+        dataOfCheck.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        dataOfCheck.textAlignment = .left
+        dataOfCheck.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            dataLabel.topAnchor.constraint(equalTo: getCheck.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            dataOfCheck.topAnchor.constraint(equalTo: getCheck.bottomAnchor, constant: 10),
+            dataOfCheck.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             ])
     }
     
     private func setGetCheck() {
         addSubview(getCheck)
+        getCheck.text = "Получен кассовый чек на сумму 186 р для заказа 405916"
+        getCheck.font = .init(name: "Ubuntu-Medium", size: 15)
+        getCheck.textAlignment = .left
+        getCheck.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        getCheck.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             getCheck.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
             getCheck.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -67,21 +79,32 @@ final class PaingCell: UICollectionViewCell {
     }
     
     private func setOrder() {
-        addSubview(order)
+        addSubview(descriptionOfOrder)
+        descriptionOfOrder.setTitle("Подробности заказа", for: .normal)
+        descriptionOfOrder.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        descriptionOfOrder.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+        descriptionOfOrder.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            order.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 20),
-            order.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            descriptionOfOrder.topAnchor.constraint(equalTo: dataOfCheck.bottomAnchor, constant: 20),
+            descriptionOfOrder.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
     
     private func setOpenButton() {
         addSubview(openButton)
+        openButton.setTitle("Открыть чек", for: .normal)
+        openButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        openButton.setTitleColor(.white, for: .normal)
+        openButton.backgroundColor = #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        openButton.layer.cornerRadius = 10
+        openButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            openButton.topAnchor.constraint(equalTo: order.bottomAnchor, constant: 10),
+            openButton.topAnchor.constraint(equalTo: descriptionOfOrder.bottomAnchor, constant: 10),
             openButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             openButton.widthAnchor.constraint(equalToConstant: 150),
             openButton.heightAnchor.constraint(equalToConstant: 40),
-        
         ])
     }
     @objc private func activIndicator() {

@@ -12,18 +12,16 @@ final class ProductCell: UICollectionViewCell {
     
     static let cell = "Product"
     
-    private let separatorView = UIView().createView(color: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-    private let image = UIImageView().createImage(systemName: "beauty", color: nil, corner: 15)
-    private let salesButton = UIButton().createButton(title: "Акция", name: "Ubuntu-Medium", size: 16, titleColor: .white, systemImage: nil, background: #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1), corner: 20)
-    private let gifSales = UILabel().createLabel(title: "Дарим скидку -50%", name: "Ubuntu-Medium", size: 16, textColor: .black, alignment: .left)
-    private let descriptionGif = UILabel().createLabel(title: "Дарим скидку на следующую покупку! -50% все! Действует 1 день.", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1) , alignment: .left)
-    private let dataLabel = UILabel().createLabel(title: "4 марта 23:00", name: "Ubuntu-Medium", size: 15, textColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), alignment: .left)
-    private let detailButton = UIButton().createButton(title: "Подробнее", name: "Ubuntu-Medium", size: 16, titleColor: .white, systemImage: nil, background: #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1), corner: 10)
+    private let separatorView = UIView()
+    private let imageOfProduct = UIImageView()
+    private let promotionOfButton = UIButton()
+    private let gifSales = UILabel()
+    private let descriptionGif = UILabel()
+    private let dataOfGif = UILabel()
+    private let detailButton = UIButton()
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
         initialize()
     }
     
@@ -33,8 +31,6 @@ final class ProductCell: UICollectionViewCell {
     
     private func initialize() {
         backgroundColor = .white
-        image.backgroundColor = .red
-        
         setSeparatorView()
         setImage()
         setSalesButton()
@@ -46,6 +42,9 @@ final class ProductCell: UICollectionViewCell {
     
     private func setSeparatorView() {
         addSubview(separatorView)
+        separatorView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             separatorView.topAnchor.constraint(equalTo: topAnchor),
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -55,36 +54,60 @@ final class ProductCell: UICollectionViewCell {
     }
     
     private func setImage() {
-        addSubview(image)
+        addSubview(imageOfProduct)
+        imageOfProduct.image = UIImage(named: "beauty")
+        imageOfProduct.clipsToBounds = true
+        imageOfProduct.layer.cornerRadius = 15
+        imageOfProduct.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
-            image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            image.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            image.heightAnchor.constraint(equalToConstant: 200)
+            imageOfProduct.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 20),
+            imageOfProduct.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            imageOfProduct.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            imageOfProduct.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     
     private func setSalesButton() {
-        addSubview(salesButton)
+        addSubview(promotionOfButton)
+        promotionOfButton.setTitle("Акция", for: .normal)
+        promotionOfButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        promotionOfButton.setTitleColor(.white, for: .normal)
+        promotionOfButton.backgroundColor = #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        promotionOfButton.layer.cornerRadius = 20
+        promotionOfButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            salesButton.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20),
-            salesButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            salesButton.widthAnchor.constraint(equalToConstant: 80),
-            salesButton.heightAnchor.constraint(equalToConstant: 40),
+            promotionOfButton.topAnchor.constraint(equalTo: imageOfProduct.bottomAnchor, constant: 20),
+            promotionOfButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            promotionOfButton.widthAnchor.constraint(equalToConstant: 80),
+            promotionOfButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
     
     
     private func setGifSales() {
         addSubview(gifSales)
+        gifSales.text = "Дарим скидку -50%"
+        gifSales.font = .init(name: "Ubuntu-Medium", size: 16)
+        gifSales.textColor = .black
+        gifSales.textAlignment = .left
+        gifSales.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            gifSales.topAnchor.constraint(equalTo: salesButton.bottomAnchor, constant: 10),
+            gifSales.topAnchor.constraint(equalTo: promotionOfButton.bottomAnchor, constant: 10),
             gifSales.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
     }
       
     private func setDescriptionGif() {
         addSubview(descriptionGif)
+        descriptionGif.text = "Дарим скидку на следующую покупку! -50% все! Действует 1 день."
+        descriptionGif.font = .init(name: "Ubuntu-Medium", size: 15)
+        descriptionGif.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        descriptionGif.textAlignment = .left
+        descriptionGif.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             descriptionGif.topAnchor.constraint(equalTo: gifSales.bottomAnchor, constant: 10),
             descriptionGif.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -93,17 +116,30 @@ final class ProductCell: UICollectionViewCell {
     }
     
     private func setDataLabel() {
-        addSubview(dataLabel)
+        addSubview(dataOfGif)
+        dataOfGif.text = "4 марта 23:00"
+        dataOfGif.font = .init(name: "Ubuntu-Medium", size: 15)
+        dataOfGif.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        dataOfGif.textAlignment = .left
+        dataOfGif.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            dataLabel.topAnchor.constraint(equalTo: descriptionGif.bottomAnchor, constant: 10),
-            dataLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            dataOfGif.topAnchor.constraint(equalTo: descriptionGif.bottomAnchor, constant: 10),
+            dataOfGif.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
     }
     
     private func setDetailButton() {
         addSubview(detailButton)
+        detailButton.setTitle("Подробнее", for: .normal)
+        detailButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
+        detailButton.setTitleColor(.white, for: .normal)
+        detailButton.backgroundColor =  #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        detailButton.layer.cornerRadius = 10
+        detailButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            detailButton.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 10),
+            detailButton.topAnchor.constraint(equalTo: dataOfGif.bottomAnchor, constant: 10),
             detailButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             detailButton.widthAnchor.constraint(equalToConstant: 150),
             detailButton.heightAnchor.constraint(equalToConstant: 40)
