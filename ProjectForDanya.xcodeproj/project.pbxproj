@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC94A9EC29E6A06900F3AB49 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94A9EB29E6A06900F3AB49 /* BottomViewController.swift */; };
 		ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */; };
 		ACB64DC829C2044B00642835 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACB64DC729C2044B00642835 /* Ubuntu-Bold.ttf */; };
 		ACB64DCA29C2045200642835 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACB64DC929C2045200642835 /* Ubuntu-Medium.ttf */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC94A9EB29E6A06900F3AB49 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySaveMessageViewController.swift; sourceTree = "<group>"; };
 		ACB64DC729C2044B00642835 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		ACB64DC929C2045200642835 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				ACDD4FB829C1FE57008ABC6B /* ReloadViewController.swift */,
 				ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */,
 				ACB64DD429C2193F00642835 /* OrderViewController.swift */,
+				AC94A9EB29E6A06900F3AB49 /* BottomViewController.swift */,
 				ACB64DDA29C2276500642835 /* Cell */,
 			);
 			path = Controllers;
@@ -213,6 +216,7 @@
 				ACB64DDC29C2279B00642835 /* OrderCell.swift in Sources */,
 				ACDD4FA929C1FD51008ABC6B /* ViewController.swift in Sources */,
 				ACB64DE229C22DE700642835 /* PromoCodeCell.swift in Sources */,
+				AC94A9EC29E6A06900F3AB49 /* BottomViewController.swift in Sources */,
 				ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */,
 				ACDD4FA529C1FD51008ABC6B /* AppDelegate.swift in Sources */,
 				ACDD4FA729C1FD51008ABC6B /* SceneDelegate.swift in Sources */,
