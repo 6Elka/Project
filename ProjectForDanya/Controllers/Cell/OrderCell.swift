@@ -7,11 +7,21 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 final class OrderCell: UICollectionViewCell {
     
     static let cell = "Order"
     
+    public func configure(order: OrderEntity) {
+        self.timerImage.image = UIImage(systemName: order.timerImage ?? "none")?.withTintColor(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), renderingMode: .alwaysOriginal)
+        self.numberOfOrder.text = order.numberOfOrder
+        self.descriptionOrder.setTitle(order.descriptionOrder ?? "none", for: .normal)
+        self.dataOrder.text = order.dataOrder
+        self.addressOfOrder.text = order.addressOfOrder
+        
+    }
+    private let order = OrderEntity(context: StorageManager.shared.context)
     private let separatorView = UIView()
     private let timerImage = UIImageView()
     private let numberOfOrder = UILabel()
@@ -52,7 +62,6 @@ final class OrderCell: UICollectionViewCell {
         
     private func setImage() {
         addSubview(timerImage)
-        timerImage.image = UIImage(systemName: "stopwatch")?.withTintColor(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), renderingMode: .alwaysOriginal)
         timerImage.translatesAutoresizingMaskIntoConstraints = false
     
         NSLayoutConstraint.activate([
@@ -65,7 +74,6 @@ final class OrderCell: UICollectionViewCell {
       
     private func setTitleLabel() {
         addSubview(numberOfOrder)
-        numberOfOrder.text = "Заказ 405916"
         numberOfOrder.font = .init(name: "Ubuntu-Medium", size: 16)
         numberOfOrder.textColor = .black
         numberOfOrder.textAlignment = .center
@@ -79,7 +87,6 @@ final class OrderCell: UICollectionViewCell {
         
     private func setOrderCompleted() {
         addSubview(addressOfOrder)
-        addressOfOrder.text = "Принят заказ 405916 на сумму 524 р. Доставка по адеру Санкт-Петербург, Московское ш., д. 7, лит. А"
         addressOfOrder.numberOfLines = 0
         addressOfOrder.font = .init(name: "Ubuntu-Medium", size: 15)
         addressOfOrder.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
@@ -95,7 +102,6 @@ final class OrderCell: UICollectionViewCell {
             
     private func setDataLabel() {
         addSubview(dataOrder)
-        dataOrder.text = "4 марта 23:00"
         dataOrder.font = .init(name: "Ubuntu-Medium", size: 15)
         dataOrder.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         dataOrder.textAlignment = .left
@@ -109,7 +115,6 @@ final class OrderCell: UICollectionViewCell {
     
     private func setOrder() {
         addSubview(descriptionOrder)
-        descriptionOrder.setTitle("Подробности заказа", for: .normal)
         descriptionOrder.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         descriptionOrder.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
         descriptionOrder.translatesAutoresizingMaskIntoConstraints = false

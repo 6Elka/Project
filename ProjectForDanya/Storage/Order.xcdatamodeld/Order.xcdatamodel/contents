@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="OrderEntity" representedClassName="OrderEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="addressOfOrder" optional="YES" attributeType="String"/>
+        <attribute name="dataOrder" optional="YES" attributeType="String"/>
+        <attribute name="descriptionOrder" optional="YES" attributeType="String"/>
+        <attribute name="numberOfOrder" optional="YES" attributeType="String"/>
+        <attribute name="timerImage" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PaingEntity" representedClassName="PaingEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dataOfCheck" optional="YES" attributeType="String"/>
+        <attribute name="descriptionOfOrder" optional="YES" attributeType="String"/>
+        <attribute name="getCheck" optional="YES" attributeType="String"/>
+        <attribute name="openButton" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProductEntity" representedClassName="ProductEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dataOfGif" optional="YES" attributeType="String"/>
+        <attribute name="descriptionGif" optional="YES" attributeType="String"/>
+        <attribute name="detailName" optional="YES" attributeType="String"/>
+        <attribute name="gifSales" optional="YES" attributeType="String"/>
+        <attribute name="imageProduct" optional="YES" attributeType="String"/>
+        <attribute name="promoName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PromoEntity" representedClassName="PromoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dataOfPromo" optional="YES" attributeType="String"/>
+        <attribute name="descriptionOffer" optional="YES" attributeType="String"/>
+        <attribute name="imgURL" optional="YES" attributeType="String"/>
+        <attribute name="promo" optional="YES" attributeType="String"/>
+        <attribute name="promoURL" optional="YES" attributeType="String"/>
+        <attribute name="specialOffer" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SalesEntity" representedClassName="SalesEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="dataOfPromo" optional="YES" attributeType="String"/>
+        <attribute name="descriptionSales" optional="YES" attributeType="String"/>
+        <attribute name="detailName" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="promotion" optional="YES" attributeType="String"/>
+        <attribute name="specialOffer" optional="YES" attributeType="String"/>
+    </entity>
+</model>

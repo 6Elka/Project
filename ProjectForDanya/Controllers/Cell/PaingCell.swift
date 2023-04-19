@@ -11,6 +11,13 @@ import UIKit
 final class PaingCell: UICollectionViewCell {
     
     static let cell = "Paing"
+    
+    public func configure(paing: PaingEntity) {
+        self.openButton.setTitle(paing.openButton, for: .normal)
+        self.getCheck.text = paing.getCheck
+        self.descriptionOfOrder.setTitle(paing.descriptionOfOrder, for: .normal)
+        self.dataOfCheck.text = paing.dataOfCheck
+    }
 
     private let separatorView = UIView()
     private let getCheck = UILabel()
@@ -51,7 +58,6 @@ final class PaingCell: UICollectionViewCell {
         
     private func setDataLabel() {
         addSubview(dataOfCheck)
-        dataOfCheck.text = "4 марта 23:00"
         dataOfCheck.font = .init(name: "Ubuntu-Medium", size: 15)
         dataOfCheck.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         dataOfCheck.textAlignment = .left
@@ -65,7 +71,6 @@ final class PaingCell: UICollectionViewCell {
     
     private func setGetCheck() {
         addSubview(getCheck)
-        getCheck.text = "Получен кассовый чек на сумму 186 р для заказа 405916"
         getCheck.font = .init(name: "Ubuntu-Medium", size: 15)
         getCheck.textAlignment = .left
         getCheck.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
@@ -80,7 +85,6 @@ final class PaingCell: UICollectionViewCell {
     
     private func setOrder() {
         addSubview(descriptionOfOrder)
-        descriptionOfOrder.setTitle("Подробности заказа", for: .normal)
         descriptionOfOrder.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         descriptionOfOrder.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
         descriptionOfOrder.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +97,6 @@ final class PaingCell: UICollectionViewCell {
     
     private func setOpenButton() {
         addSubview(openButton)
-        openButton.setTitle("Открыть чек", for: .normal)
         openButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         openButton.setTitleColor(.white, for: .normal)
         openButton.backgroundColor = #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)

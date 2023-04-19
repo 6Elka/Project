@@ -12,6 +12,15 @@ final class SalesCell: UICollectionViewCell {
     
     static let cell = "Sales"
     
+    public func configure(sales: SalesEntity) {
+        newButton.setTitle(sales.name ?? "", for: .normal)
+        promotionButton.setTitle(sales.promotion ?? "", for: .normal)
+        specialOffer.text = sales.specialOffer
+        descriptionSales.text = sales.descriptionSales
+        dataOfPromotion.text = sales.dataOfPromo
+        detailButton.setTitle(sales.detailName ?? "", for: .normal)
+    }
+    
     private let separatorView = UIView()
     private let newButton = UIButton()
     private let promotionButton = UIButton()
@@ -50,7 +59,6 @@ final class SalesCell: UICollectionViewCell {
     
     private func setNewButton() {
         addSubview(newButton)
-        newButton.setTitle("Новое", for: .normal)
         newButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         newButton.setTitleColor(.white, for: .normal)
         newButton.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
@@ -67,7 +75,6 @@ final class SalesCell: UICollectionViewCell {
     
     private func setSalesButton() {
         addSubview(promotionButton)
-        promotionButton.setTitle("Акция", for: .normal)
         promotionButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         promotionButton.setTitleColor(.white, for: .normal)
         promotionButton.backgroundColor = #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
@@ -84,7 +91,6 @@ final class SalesCell: UICollectionViewCell {
       
     private func setSpecialOffer() {
         addSubview(specialOffer)
-        specialOffer.text = "Специальное предложение по вашей карте лояльности"
         specialOffer.font = .init(name: "Ubuntu-Medium", size: 16)
         specialOffer.textColor = .black
         specialOffer.textAlignment = .left
@@ -99,7 +105,6 @@ final class SalesCell: UICollectionViewCell {
         
     private func setDescriptionSales() {
         addSubview(descriptionSales)
-        descriptionSales.text = "Скидка 10% на доставку любимых товаров в день покупки, 24-25 августа"
         descriptionSales.font = .init(name: "Ubuntu-Medium", size: 15)
         descriptionSales.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         descriptionSales.textAlignment = .left
@@ -114,7 +119,6 @@ final class SalesCell: UICollectionViewCell {
     
     private func setDataLabel() {
         addSubview(dataOfPromotion)
-        dataOfPromotion.text = "4 марта 23:00"
         dataOfPromotion.font = .init(name: "Ubuntu-Medium", size: 15)
         dataOfPromotion.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         dataOfPromotion.textAlignment = .left
@@ -128,7 +132,6 @@ final class SalesCell: UICollectionViewCell {
           
     private func setDetailBtn() {
         addSubview(detailButton)
-        detailButton.setTitle("Подробнее", for: .normal)
         detailButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         detailButton.setTitleColor(.white, for: .normal)
         detailButton.backgroundColor = #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)

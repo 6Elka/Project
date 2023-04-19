@@ -12,6 +12,15 @@ final class ProductCell: UICollectionViewCell {
     
     static let cell = "Product"
     
+    public func configure(product: ProductEntity) {
+        self.dataOfGif.text = product.dataOfGif
+        self.descriptionGif.text = product.descriptionGif
+        self.gifSales.text = product.gifSales
+        self.detailButton.setTitle(product.detailName ?? "", for: .normal)
+        self.imageOfProduct.image = UIImage(named: product.imageProduct ?? "")
+        self.promotionOfButton.setTitle(product.promoName ?? "", for: .normal)
+    }
+    
     private let separatorView = UIView()
     private let imageOfProduct = UIImageView()
     private let promotionOfButton = UIButton()
@@ -55,7 +64,6 @@ final class ProductCell: UICollectionViewCell {
     
     private func setImage() {
         addSubview(imageOfProduct)
-        imageOfProduct.image = UIImage(named: "beauty")
         imageOfProduct.clipsToBounds = true
         imageOfProduct.layer.cornerRadius = 15
         imageOfProduct.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +78,6 @@ final class ProductCell: UICollectionViewCell {
     
     private func setSalesButton() {
         addSubview(promotionOfButton)
-        promotionOfButton.setTitle("Акция", for: .normal)
         promotionOfButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         promotionOfButton.setTitleColor(.white, for: .normal)
         promotionOfButton.backgroundColor = #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
@@ -88,7 +95,6 @@ final class ProductCell: UICollectionViewCell {
     
     private func setGifSales() {
         addSubview(gifSales)
-        gifSales.text = "Дарим скидку -50%"
         gifSales.font = .init(name: "Ubuntu-Medium", size: 16)
         gifSales.textColor = .black
         gifSales.textAlignment = .left
@@ -102,7 +108,6 @@ final class ProductCell: UICollectionViewCell {
       
     private func setDescriptionGif() {
         addSubview(descriptionGif)
-        descriptionGif.text = "Дарим скидку на следующую покупку! -50% все! Действует 1 день."
         descriptionGif.font = .init(name: "Ubuntu-Medium", size: 15)
         descriptionGif.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         descriptionGif.textAlignment = .left
@@ -117,7 +122,6 @@ final class ProductCell: UICollectionViewCell {
     
     private func setDataLabel() {
         addSubview(dataOfGif)
-        dataOfGif.text = "4 марта 23:00"
         dataOfGif.font = .init(name: "Ubuntu-Medium", size: 15)
         dataOfGif.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         dataOfGif.textAlignment = .left
@@ -131,7 +135,6 @@ final class ProductCell: UICollectionViewCell {
     
     private func setDetailButton() {
         addSubview(detailButton)
-        detailButton.setTitle("Подробнее", for: .normal)
         detailButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         detailButton.setTitleColor(.white, for: .normal)
         detailButton.backgroundColor =  #colorLiteral(red: 0.9015665756, green: 0.02745098062, blue: 0.3333333433, alpha: 1)

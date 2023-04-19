@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC292E2D29F001F100DF85EA /* Order.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC292E2B29F001F100DF85EA /* Order.xcdatamodeld */; };
+		AC292E3329F002C100DF85EA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC292E3229F002C100DF85EA /* StorageManager.swift */; };
 		AC94A9EC29E6A06900F3AB49 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94A9EB29E6A06900F3AB49 /* BottomViewController.swift */; };
 		ACB64DC629C2020200642835 /* MySaveMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */; };
 		ACB64DC829C2044B00642835 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACB64DC729C2044B00642835 /* Ubuntu-Bold.ttf */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC292E2C29F001F100DF85EA /* Order.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Order.xcdatamodel; sourceTree = "<group>"; };
+		AC292E3229F002C100DF85EA /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AC94A9EB29E6A06900F3AB49 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		ACB64DC529C2020200642835 /* MySaveMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySaveMessageViewController.swift; sourceTree = "<group>"; };
 		ACB64DC729C2044B00642835 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
@@ -58,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC292E3429F00E2A00DF85EA /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				AC292E2B29F001F100DF85EA /* Order.xcdatamodeld */,
+				AC292E3229F002C100DF85EA /* StorageManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		ACB23B2729C3216C00FE7E44 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +144,7 @@
 		ACDD4FA329C1FD51008ABC6B /* ProjectForDanya */ = {
 			isa = PBXGroup;
 			children = (
+				AC292E3429F00E2A00DF85EA /* Storage */,
 				ACB64DD629C2198400642835 /* Delegates */,
 				ACB64DD729C219A100642835 /* Controllers */,
 				ACB23B2729C3216C00FE7E44 /* Supporting */,
@@ -213,6 +227,7 @@
 			files = (
 				ACB64DE429C22DF200642835 /* PaingCell.swift in Sources */,
 				ACDD4FB929C1FE57008ABC6B /* ReloadViewController.swift in Sources */,
+				AC292E2D29F001F100DF85EA /* Order.xcdatamodeld in Sources */,
 				ACB64DDC29C2279B00642835 /* OrderCell.swift in Sources */,
 				ACDD4FA929C1FD51008ABC6B /* ViewController.swift in Sources */,
 				ACB64DE229C22DE700642835 /* PromoCodeCell.swift in Sources */,
@@ -223,6 +238,7 @@
 				ACB64DE029C22DD800642835 /* ProductCell.swift in Sources */,
 				ACB64DD529C2193F00642835 /* OrderViewController.swift in Sources */,
 				ACB64DDE29C22D3B00642835 /* SalesCell.swift in Sources */,
+				AC292E3329F002C100DF85EA /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +444,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AC292E2B29F001F100DF85EA /* Order.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AC292E2C29F001F100DF85EA /* Order.xcdatamodel */,
+			);
+			currentVersion = AC292E2C29F001F100DF85EA /* Order.xcdatamodel */;
+			path = Order.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ACDD4F9929C1FD51008ABC6B /* Project object */;
 }

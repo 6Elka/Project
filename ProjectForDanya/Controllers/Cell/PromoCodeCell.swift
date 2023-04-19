@@ -12,6 +12,15 @@ final class PromoCell: UICollectionViewCell {
     
     static let cell = "Promo"
     
+    public func configure(promo: PromoEntity) {
+        self.promoURL.text = promo.promoURL
+        self.imgURL.image =  UIImage(systemName: promo.imgURL ?? "")?.withTintColor( #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), renderingMode: .alwaysOriginal)
+        self.descriptionOffer.text = promo.descriptionOffer
+        self.specialOffer.text = promo.specialOffer
+        self.dataOfPromo.text = promo.dataOfPromo
+        self.promoButton.setTitle(promo.promo, for: .normal)
+    }
+    
     private let separatorView = UIView()
     private let promoButton = UIButton()
     private let specialOffer = UILabel()
@@ -55,7 +64,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func setPromoBtn() {
         addSubview(promoButton)
-        promoButton.setTitle("Промокод", for: .normal)
         promoButton.titleLabel?.font = .init(name: "Ubuntu-Medium", size: 16)
         promoButton.setTitleColor(.white, for: .normal)
         promoButton.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
@@ -72,7 +80,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func setSpecialOffer() {
         addSubview(specialOffer)
-        specialOffer.text = "Дарим промокод"
         specialOffer.font = .init(name: "Ubuntu-Medium", size: 16)
         specialOffer.textColor = .black
         specialOffer.textAlignment = .left
@@ -86,7 +93,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func setDescriptionSales() {
         addSubview(descriptionOffer)
-        descriptionOffer.text = "Дарим промо-код на следующую покупку. Код действует до 24 мая. Успейте воспользоваться! =)"
         descriptionOffer.numberOfLines = 0
         descriptionOffer.font = .init(name: "Ubuntu-Medium", size: 15)
         descriptionOffer.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
@@ -102,7 +108,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func setPromoURL() {
         addSubview(promoURL)
-        promoURL.text = "UR-29375"
         promoURL.font = .init(name: "Ubuntu-Medium", size: 16)
         promoURL.textColor = .black
         promoURL.textAlignment = .left
@@ -116,7 +121,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func setCopyDoc() {
         addSubview(imgURL)
-        imgURL.image = UIImage(systemName: "doc.on.doc")?.withTintColor( #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), renderingMode: .alwaysOriginal)
         imgURL.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -129,7 +133,6 @@ final class PromoCell: UICollectionViewCell {
     
     private func setDataLabel() {
         addSubview(dataOfPromo)
-        dataOfPromo.text = "4 марта 23:00"
         dataOfPromo.font = .init(name: "Ubuntu-Medium", size: 15)
         dataOfPromo.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         dataOfPromo.textAlignment = .left

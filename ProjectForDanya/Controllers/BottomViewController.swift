@@ -12,7 +12,7 @@ enum Event {
     case closed
 }
 
-class BottomViewController: UIViewController {
+final class BottomViewController: UIViewController {
 
     public var event: Event = .gointToClose
     private let cancelView = UIView()

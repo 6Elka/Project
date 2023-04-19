@@ -73,7 +73,7 @@ final class ViewController: UIViewController {
     @objc private func changeWindow() {
         switch login {
         case .one:
-            present(ReloadViewController(), animated: true)
+            present(OrderViewController(), animated: true)
             login = .two
         case .two:
             present(MySaveMessageViewController(), animated: true)
